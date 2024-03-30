@@ -7,11 +7,13 @@ public class StorageService : IStorageService
 { 
     private readonly BlobServiceClient _blobServiceClient; 
     private readonly IConfiguration _configuration; 
+    
     public StorageService(BlobServiceClient blobServiceClient, IConfiguration configuration) 
     { 
         _blobServiceClient = blobServiceClient;     
         _configuration = configuration;
     }
+    
     public void Upload(IFormFile formFile) 
     {
         var containerName = _configuration.Get<AppConfig>().Storage.ContainerName;
