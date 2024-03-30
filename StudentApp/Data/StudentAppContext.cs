@@ -8,19 +8,23 @@ public class StudentAppContext : DbContext
     public StudentAppContext()
     {
     }
+    
     public StudentAppContext(DbContextOptions<StudentAppContext> options)
         : base(options)
     {
     }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=StudentApp.Data;Trusted_Connection=True");
     }
+    
     public DbSet<Students> Student { get; set; }
     public DbSet<StudentPhoneNo> StudentPhoneNo { get; set; }
     public DbSet<StudentEmailAddress> StudentEmailAddress { get; set; }
     public DbSet<StudentAddress> StudentAddress { get; set; }
     public DbSet<StudentImage> StudentImage { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         {
